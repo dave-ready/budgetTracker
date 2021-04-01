@@ -42,6 +42,19 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- run indexedDB.js.js first, otherwise when off line index.js will try to use it before it has been read -->
+  <script src="indexedDB.js"></script>
   <script src="index.js"></script>
+<!--
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("Service-Worker file has been located!", reg);
+        });
+      });
+    }
+  </script>
+  -->
 </body>
 </html>
