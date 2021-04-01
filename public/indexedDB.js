@@ -21,4 +21,14 @@ request.onsuccess = function(event) {
     console.log("Sorry!! " + event.target.errorCode);
   };
 
+  function saveRecord(record) {
+    // create a transaction on the pending db with readwrite access. Then access 
+    //pending object store
+    const transaction = db.transaction(["pending"], "readwrite");
+    const store = transaction.objectStore("pending");
+    
+    // add record to your store with add method.
+    store.add(record);
+  }
+
 
