@@ -23,8 +23,23 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 });
 
 // routes
-app.use(require("./routes/api.js"));
+//DOESN'T WORK 
+//app.use("./routes/api.js");
+
+//EXAMPLE
+//const auth = require("./routes/auth");
+//app.use("/api/v1/auth", auth);
+
+const api = require("./routes/api.js");
+app.use("./routes/api.js", api);
+
+//ALTERNATIVE
+//const api = require("./routes/api.js");
+//app.use("/api/transaction/bulk", bulk);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
+
+
