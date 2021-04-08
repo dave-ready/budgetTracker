@@ -22,6 +22,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
+const api = require("./routes/api.js");
+app.use(api);
+
 // routes
 //DOESN'T WORK 
 //app.use("./routes/api.js");
@@ -30,8 +33,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 //const auth = require("./routes/auth");
 //app.use("/api/v1/auth", auth);
 
-const api = require("./routes/api.js");
-app.use("./routes/api.js", api);
+//const api = require("./routes/api.js");
+//app.use("./routes/api.js", api);
+
+
 
 //ALTERNATIVE
 //const api = require("./routes/api.js");
